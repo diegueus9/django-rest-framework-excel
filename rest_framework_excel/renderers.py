@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from six import StringIO, text_type
+from uuid import UUID
 
 from ordereddict import OrderedDict
 from openpyxl import Workbook
@@ -42,6 +43,8 @@ class ExcelRenderer(BaseRenderer):
             for col_idx, elem in enumerate(row, 1):
                 if isinstance(elem, text_type) and PY2:
                     ws.cell(column=col_idx, row=row_idx, value=elem.encode('utf-8'))
+                elif isinstance(elem, UUID):
+                    ws.cell(column=col_idx, row=row_idx, value=unicode(elem))
                 else:
                     ws.cell(column=col_idx, row=row_idx, value=elem)
 
