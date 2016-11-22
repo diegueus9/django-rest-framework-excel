@@ -34,7 +34,7 @@ class ExcelRenderer(BaseRenderer):
 
         stream = StringIO()
 
-        wb = Workbook(encoding="UTF-8")
+        wb = Workbook()
         ws = wb.active
 
         table = self.tablize(data)
