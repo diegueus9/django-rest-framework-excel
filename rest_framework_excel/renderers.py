@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 from six import StringIO, text_type
 from uuid import UUID
 
-from ordereddict import OrderedDict
+from collections import OrderedDict
 from openpyxl import Workbook
 
 from rest_framework.renderers import BaseRenderer
